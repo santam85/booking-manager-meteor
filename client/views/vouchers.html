@@ -1,0 +1,87 @@
+<template name="vouchers" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <ul class="list-group">
+            {{#each vouchers}}
+                {{> voucher}}
+            {{/each}}
+        </ul>
+
+        {{#if newVoucher}}
+            {{#with newVoucher}}{{> voucherEdit}}{{/with}}
+        {{else}}
+            <button id="vouchers-addnew" type="button" class="btn btn-default" aria-label="Add new"><span class="glyphicon glyphicon-plus"></span> Add new</button>
+        {{/if}}
+    </div>
+</template>
+
+<template name="voucher">
+    <li class="list-group-item clearfix">
+        <div class="pull-right" style="margin-right: 10px;">
+            <div class="pull-right" style="clear: right;">
+                Valid from: <span class="badge">{{dates.start}}</span>
+            </div>
+            <div class="pull-right" style="clear: right;">
+                Valid to: <span class="badge">{{dates.end}}</span>
+            </div>
+
+            <div class="btn-group pull-right" role="group" style="clear: right; margin-top: 10px">
+                <button type="button" class="btn btn-default">Redeem</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Revoke</a></li>
+                    <li><a href="#">Edit</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="voucher-delete">Delete</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <h4 class="list-group-item-heading">{{name}}</h4>
+        <p class="list-group-item-text">{{description}}</p>
+    </li>
+</template>
+
+<template name="voucherEdit">
+    <form id="voucher-edit" class="form-horizontal">
+        <input type="hidden" name="id" value="{{_id}}">
+        <div class="form-group">
+            <label for="voucher-edit-name" class="col-sm-3">Name</label>
+            <div class="col-sm-6">
+                <input id="voucher-edit-name" name="name" class="form-control" type="text" placeholder="Name" value="{{name}}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="voucher-edit-date-start" class="col-sm-3">Valid from</label>
+            <div class="col-sm-6">
+                <div class="input-group date">
+                    <input id="voucher-edit-date-start" name="datestart" class="form-control" type="text" placeholder="Valid from" value="{{dates.start}}"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+        <div class="form-group date">
+            <label for="voucher-edit-date-end" class="col-sm-3">Valid until</label>
+            <div class="col-sm-6">
+                <div class="input-group date">
+                    <input id="voucher-edit-date-end" name="dateend" class="form-control" type="text" placeholder="Valid until" value="{{dates.end}}"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="voucher-edit-description" class="col-sm-3">Description</label>
+            <div class="col-sm-6">
+                <textarea id="voucher-edit-description" name="description" class="form-control" type="text" placeholder="Description" value="{{description}}"></textarea>
+            </div>
+        </div>
+        
+        <button class="btn btn-primary pull-right">Save</button>
+    </form>
+</template>
