@@ -1,7 +1,13 @@
 standard-app-packages
-iron:router
 less
+
+iron:router
+twbs:bootstrap
+aldeed:autoform
+aldeed:collection2
+aldeed:template-extension
+aldeed:autoform-bs-datepicker
+aldeed:autoform-bs-datetimepicker
 accounts-password
-mrt:accounts-ui-bootstrap-3
-nemo64:bootstrap
+ian:accounts-ui-bootstrap-3
 rajit:bootstrap3-datepicker

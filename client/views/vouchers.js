@@ -42,10 +42,8 @@ if (Meteor.isClient) {
         Meteor.call("addVoucher", {
           name: name,
           description: description,
-          dates: {
-            start: dateStart,
-            end: dateEnd
-          }
+          startDate: dateStart,
+          endDate: dateEnd
         });
 
       // Prevent default form submit

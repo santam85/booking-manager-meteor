@@ -1,0 +1,1 @@
+Template['autoform-datepicker'].replaces("afBootstrapDatepicker");
