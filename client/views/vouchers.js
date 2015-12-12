@@ -18,13 +18,16 @@ if (Meteor.isClient) {
   
   Template.vouchers.events({
     "click #vouchers-addnew": function () {
-      Session.set("newVoucher",{name:"asd"});
+      Session.set("newVoucher",{});
     }
   });
   
   Template.voucher.events({
     "click .voucher-delete": function () {
       Meteor.call("deleteVoucher", this._id);
+    },
+    "click .voucher-edit": function () {
+      Session.set("newVoucher",this);
     }
   });
   
@@ -45,6 +48,8 @@ if (Meteor.isClient) {
           startDate: dateStart,
           endDate: dateEnd
         });
+
+      Session.set("newVoucher", undefined);
 
       // Prevent default form submit
       return false;

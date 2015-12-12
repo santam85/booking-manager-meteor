@@ -32,7 +32,7 @@
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Revoke</a></li>
-                    <li><a href="#">Edit</a></li>
+                    <li><a href="#" class="voucher-edit">Edit</a></li>
                     <li class="divider"></li>
                     <li><a href="#" class="voucher-delete">Delete</a></li>
                 </ul>
@@ -86,5 +86,5 @@
         <button class="btn btn-primary pull-right">Save</button>
     </form> -->
 
-    {{> quickForm collection="Vouchers" id="voucher-insert" type="insert" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-6" }}
+    {{> quickForm collection="Vouchers" doc=this id="voucher-insert" type="update" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-6" }}
 </template>
